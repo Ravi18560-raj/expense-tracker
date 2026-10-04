@@ -1,0 +1,27 @@
+Paste this whole block into your terminal. It starts from a clean database and runs every feature in order.
+------------------------------------------------------------------------------------------------------
+cd ~/Documents/expense_tracker
+rm -rf data
+
+python3 main.py add 250 food -d "Lunch" --date 2026-10-01
+python3 main.py add 1200 transport -d "Metro pass" --date 2026-10-02
+python3 main.py add 80 food -d "Coffee" --date 2026-09-20
+python3 main.py list
+python3 main.py edit 3 --amount 95
+python3 main.py search coffee
+python3 main.py month --year 2026 --month 10
+python3 main.py report --year 2026 --month 10
+python3 main.py export out.csv
+cat out.csv
+python3 main.py delete 3
+python3 main.py list
+------------------------------------------------------------------------------------------------------
+==================================================================================================================
+Trying the JSON backend and the upgrade
+------------------------------------------------------------------------------------------------------
+rm -rf data
+python3 main.py --backend json add 250 food -d "Lunch"
+python3 main.py --backend json list
+python3 main.py migrate
+python3 main.py list
+------------------------------------------------------------------------------------------------------
